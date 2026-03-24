@@ -49,7 +49,7 @@ export async function getArticleBySlug(slug: string) {
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(fileContent);
 
-  const processedContent = await remark().use(html).process(content);
+  const processedContent = await remark().use(html, { sanitize: false }).process(content);
   const contentHtml = processedContent.toString();
 
   return {
