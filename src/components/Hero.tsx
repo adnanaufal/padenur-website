@@ -1,4 +1,5 @@
 import ScrollReveal from "./animations/ScrollReveal";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -42,15 +43,15 @@ export default function Hero() {
 
               {/* CTA Buttons */}
               <div className="flex flex-wrap gap-3">
-                <a
-                  href="#pengalaman"
+                <Link
+                  href="/publikasi"
                   className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-navy font-semibold px-6 py-3 rounded-xl text-sm transition-all duration-300 hover:shadow-lg hover:shadow-gold/20"
                 >
-                  Lihat Pengalaman
+                  Lihat Publikasi
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
-                </a>
+                </Link>
                 <a
                   href="https://www.linkedin.com/in/deni-nuryadin-6453bb33a"
                   target="_blank"
