@@ -5,11 +5,15 @@ import Education from "@/components/Education";
 import Link from "next/link";
 import PageTransition from "@/components/animations/PageTransition";
 import ScrollReveal from "@/components/animations/ScrollReveal";
+import FeaturedPublications from "@/components/FeaturedPublications";
+import { getAllArticles } from "@/lib/mdx";
 
 export default function Home() {
+  const articles = getAllArticles();
   return (
     <PageTransition>
       <Hero />
+      <FeaturedPublications articles={articles.slice(0, 3)} />
       <SkillsGrid />
       <Timeline />
       <Education />
