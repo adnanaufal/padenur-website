@@ -1,5 +1,35 @@
 const experiences = [
   {
+    role: "Dewan Pengawas Syariah",
+    company: "KSPPS An Nur (Lembaga Keuangan Mikro Syariah)",
+    period: "2025 — Sekarang",
+    location: "Tangerang Selatan, Banten",
+    responsibilities: [
+      "Memastikan semua produk dan jasa mematuhi prinsip-prinsip syariah."
+    ],
+    current: true,
+  },
+  {
+    role: "Komisioner",
+    company: "Baznas Tangsel",
+    period: "2022 — 2027",
+    location: "Tangerang Selatan, Banten",
+    responsibilities: [
+      "Mengawasi pengumpulan dan penyaluran ZIS (Zakat, Infak, Sedekah) secara tepat sasaran."
+    ],
+    current: true,
+  },
+  {
+    role: "Komisaris Utama",
+    company: "BPR Matahari",
+    period: "Aktif",
+    location: "Indonesia",
+    responsibilities: [
+      "Melakukan pengawasan dan memberikan nasihat kepada Direksi dalam menjalankan perusahaan."
+    ],
+    current: true,
+  },
+  {
     role: "Lecturer",
     company: "Universitas Muhammadiyah Prof. Dr. Hamka (UHAMKA)",
     period: "April 2016 — Sekarang",
@@ -22,7 +52,7 @@ const experiences = [
     current: false,
   },
   {
-    role: "Alternative Channel Section Head",
+    role: "Alternative Channel",
     company: "PT Bank Rakyat Indonesia Syariah",
     period: "Januari 2010 — Juni 2017",
     location: "Jakarta Pusat, Indonesia",
@@ -47,7 +77,7 @@ const experiences = [
     current: false,
   },
   {
-    role: "Manager Ketua Koperasi LABA",
+    role: "Direktur Koperasi LABA",
     company: "Koperasi ESQ 165",
     period: "Januari 2004 — Juni 2008",
     location: "Jakarta Pusat, Indonesia",
