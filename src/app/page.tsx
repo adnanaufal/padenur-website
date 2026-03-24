@@ -14,9 +14,9 @@ export default function Home() {
     <PageTransition>
       <Hero />
       <FeaturedPublications articles={articles.slice(0, 3)} />
-      <SkillsGrid />
       <Timeline />
       <Education />
+      <SkillsGrid />
 
       {/* CTA Section*/}
       <section className="py-20 bg-navy relative overflow-hidden">
