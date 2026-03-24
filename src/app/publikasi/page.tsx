@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllArticles } from "@/lib/mdx";
+import PageTransition from "@/components/animations/PageTransition";
+import ScrollReveal from "@/components/animations/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Publikasi & Riset",
@@ -11,18 +13,21 @@ export default function PublikasiPage() {
   const articles = getAllArticles();
 
   return (
-    <section className="py-20 bg-cream min-h-screen">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-14">
-          <p className="text-gold text-sm font-semibold uppercase tracking-widest mb-2">Riset & Tulisan</p>
-          <h1 className="text-3xl sm:text-4xl font-bold text-navy font-serif">Publikasi</h1>
-          <div className="w-16 h-1 bg-gradient-to-r from-gold to-gold-light mx-auto mt-4 rounded-full" />
-          <p className="text-gray-500 mt-4 max-w-xl mx-auto leading-relaxed">
-            Kumpulan artikel, hasil riset, dan pemikiran terkait operasional perbankan syariah,
-            manajemen keuangan, dan ekonomi Islam.
-          </p>
-        </div>
+    <PageTransition>
+      <section className="py-20 bg-cream min-h-screen">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <ScrollReveal direction="up" delay={0.1}>
+            <div className="text-center mb-14">
+              <p className="text-gold text-sm font-semibold uppercase tracking-widest mb-2">Riset & Tulisan</p>
+              <h1 className="text-3xl sm:text-4xl font-bold text-navy font-serif">Publikasi</h1>
+              <div className="w-16 h-1 bg-gradient-to-r from-gold to-gold-light mx-auto mt-4 rounded-full" />
+              <p className="text-gray-500 mt-4 max-w-xl mx-auto leading-relaxed">
+                Kumpulan artikel, hasil riset, dan pemikiran terkait operasional perbankan syariah,
+                manajemen keuangan, dan ekonomi Islam.
+              </p>
+            </div>
+          </ScrollReveal>
 
         {/* Article List */}
         {articles.length === 0 ? (
@@ -37,51 +42,53 @@ export default function PublikasiPage() {
           </div>
         ) : (
           <div className="space-y-6 stagger-children">
-            {articles.map((article) => (
-              <Link
-                key={article.slug}
-                href={`/publikasi/${article.slug}`}
-                className="block glass-card rounded-2xl p-6 sm:p-8 hover:shadow-lg hover:shadow-gold/5 transition-all duration-300 group hover:-translate-y-0.5"
-              >
-                {/* Tags */}
-                {article.tags.length > 0 && (
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    {article.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-xs font-medium bg-gold/10 text-gold px-2.5 py-0.5 rounded-full"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+            {articles.map((article, index) => (
+              <ScrollReveal key={article.slug} direction="up" delay={index * 0.1}>
+                <Link
+                  href={`/publikasi/${article.slug}`}
+                  className="block glass-card rounded-2xl p-6 sm:p-8 hover:shadow-lg hover:shadow-gold/5 transition-all duration-300 group hover:-translate-y-0.5"
+                >
+                  {/* Tags */}
+                  {article.tags.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {article.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-xs font-medium bg-gold/10 text-gold px-2.5 py-0.5 rounded-full"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Title */}
+                  <h2 className="text-xl font-bold text-navy font-serif group-hover:text-slate-blue transition-colors mb-2">
+                    {article.title}
+                  </h2>
+
+                  {/* Excerpt */}
+                  <p className="text-gray-500 text-sm leading-relaxed mb-4">{article.excerpt}</p>
+
+                  {/* Meta */}
+                  <div className="flex items-center gap-4 text-xs text-gray-400">
+                    <span>{article.author}</span>
+                    <span>•</span>
+                    <span>
+                      {new Date(article.date).toLocaleDateString("id-ID", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
+                    </span>
                   </div>
-                )}
-
-                {/* Title */}
-                <h2 className="text-xl font-bold text-navy font-serif group-hover:text-slate-blue transition-colors mb-2">
-                  {article.title}
-                </h2>
-
-                {/* Excerpt */}
-                <p className="text-gray-500 text-sm leading-relaxed mb-4">{article.excerpt}</p>
-
-                {/* Meta */}
-                <div className="flex items-center gap-4 text-xs text-gray-400">
-                  <span>{article.author}</span>
-                  <span>•</span>
-                  <span>
-                    {new Date(article.date).toLocaleDateString("id-ID", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
-                  </span>
-                </div>
-              </Link>
+                </Link>
+              </ScrollReveal>
             ))}
           </div>
         )}
       </div>
-    </section>
+      </section>
+    </PageTransition>
   );
 }

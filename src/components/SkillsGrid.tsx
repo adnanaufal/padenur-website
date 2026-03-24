@@ -46,32 +46,35 @@ const skills = [
   },
 ];
 
+import ScrollReveal from "./animations/ScrollReveal";
+
 export default function SkillsGrid() {
   return (
     <section className="py-20 bg-cream">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-14">
-          <p className="text-gold text-sm font-semibold uppercase tracking-widest mb-2">Kompetensi</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-navy font-serif">
-            Keahlian Utama
-          </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-gold to-gold-light mx-auto mt-4 rounded-full" />
-        </div>
+        <ScrollReveal direction="up">
+          <div className="text-center mb-14">
+            <p className="text-gold text-sm font-semibold uppercase tracking-widest mb-2">Kompetensi</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-navy font-serif">
+              Keahlian Utama
+            </h2>
+            <div className="w-16 h-1 bg-gradient-to-r from-gold to-gold-light mx-auto mt-4 rounded-full" />
+          </div>
+        </ScrollReveal>
 
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
-          {skills.map((skill) => (
-            <div
-              key={skill.title}
-              className="glass-card rounded-2xl p-6 hover:shadow-lg hover:shadow-gold/5 transition-all duration-300 group hover:-translate-y-1"
-            >
-              <div className="w-12 h-12 rounded-xl bg-navy/5 group-hover:bg-gold/10 flex items-center justify-center text-slate-blue group-hover:text-gold transition-colors duration-300 mb-4">
-                {skill.icon}
+          {skills.map((skill, index) => (
+            <ScrollReveal key={skill.title} delay={index * 0.1} direction="up">
+              <div className="glass-card h-full rounded-2xl p-6 hover:shadow-lg hover:shadow-gold/5 transition-all duration-300 group hover:-translate-y-1">
+                <div className="w-12 h-12 rounded-xl bg-navy/5 group-hover:bg-gold/10 flex items-center justify-center text-slate-blue group-hover:text-gold transition-colors duration-300 mb-4">
+                  {skill.icon}
+                </div>
+                <h3 className="text-lg font-semibold text-navy mb-2 font-serif">{skill.title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{skill.description}</p>
               </div>
-              <h3 className="text-lg font-semibold text-navy mb-2 font-serif">{skill.title}</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">{skill.description}</p>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
