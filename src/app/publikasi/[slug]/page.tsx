@@ -108,6 +108,17 @@ export default async function ArticlePage({ params }: Props) {
             />
           </ScrollReveal>
 
+          {/* Bottom Share */}
+          <ScrollReveal direction="up" delay={0.25}>
+            <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-6 p-6 sm:p-8 bg-white/60 backdrop-blur-sm rounded-2xl border border-gold/10 shadow-sm shadow-gold/5">
+              <div>
+                <h3 className="text-lg font-bold text-navy font-serif mb-1 text-center sm:text-left">Bagikan Tulisan Ini</h3>
+                <p className="text-sm text-gray-500 text-center sm:text-left">Sebarkan inspirasi dan wawasan ke jaringan Anda.</p>
+              </div>
+              <ShareButtons title={article.title} slug={slug} />
+            </div>
+          </ScrollReveal>
+
           {/* Footer */}
           <ScrollReveal direction="up" delay={0.3}>
             <div className="mt-16 pt-8 border-t border-gray-200">
