@@ -45,7 +45,9 @@ export default function PublikasiPage() {
             {articles.map((article, index) => (
               <ScrollReveal key={article.slug} direction="up" delay={index * 0.1}>
                 <Link
-                  href={`/publikasi/${article.slug}`}
+                  href={article.externalLink || `/publikasi/${article.slug}`}
+                  target={article.externalLink ? "_blank" : undefined}
+                  rel={article.externalLink ? "noopener noreferrer" : undefined}
                   className="block glass-card rounded-2xl p-6 sm:p-8 hover:shadow-lg hover:shadow-gold/5 transition-all duration-300 group hover:-translate-y-0.5"
                 >
                   {/* Tags */}

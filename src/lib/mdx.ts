@@ -13,6 +13,7 @@ export interface ArticleMeta {
   excerpt: string;
   author: string;
   tags: string[];
+  externalLink?: string;
 }
 
 export function getAllArticles(): ArticleMeta[] {
@@ -33,6 +34,7 @@ export function getAllArticles(): ArticleMeta[] {
       excerpt: data.excerpt || "",
       author: data.author || "Deni Nuryadin",
       tags: data.tags || [],
+      externalLink: data.externalLink || null,
     };
   });
 
@@ -59,6 +61,7 @@ export async function getArticleBySlug(slug: string) {
     excerpt: data.excerpt || "",
     author: data.author || "Deni Nuryadin",
     tags: data.tags || [],
+    externalLink: data.externalLink || null,
     contentHtml,
   };
 }

@@ -12,6 +12,7 @@ interface Article {
   date: string;
   author: string;
   tags: string[];
+  externalLink?: string;
 }
 
 export default function FeaturedPublications({ articles }: { articles: Article[] }) {
@@ -74,7 +75,12 @@ export default function FeaturedPublications({ articles }: { articles: Article[]
               )}
               
               <h3 className="text-2xl sm:text-3xl font-bold text-navy font-serif leading-snug mb-4">
-                <Link href={`/publikasi/${articles[currentIndex].slug}`} className="hover:text-gold transition-colors">
+                <Link 
+                  href={articles[currentIndex].externalLink || `/publikasi/${articles[currentIndex].slug}`}
+                  target={articles[currentIndex].externalLink ? "_blank" : undefined}
+                  rel={articles[currentIndex].externalLink ? "noopener noreferrer" : undefined}
+                  className="hover:text-gold transition-colors"
+                >
                   {articles[currentIndex].title}
                 </Link>
               </h3>
@@ -96,7 +102,9 @@ export default function FeaturedPublications({ articles }: { articles: Article[]
                 </div>
                 
                 <Link
-                  href={`/publikasi/${articles[currentIndex].slug}`}
+                  href={articles[currentIndex].externalLink || `/publikasi/${articles[currentIndex].slug}`}
+                  target={articles[currentIndex].externalLink ? "_blank" : undefined}
+                  rel={articles[currentIndex].externalLink ? "noopener noreferrer" : undefined}
                   className="text-sm font-semibold text-gold hover:text-gold-light transition-colors flex items-center gap-1"
                 >
                   Baca Selengkapnya
