@@ -7,11 +7,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-gold to-gold-light flex items-center justify-center text-navy font-bold text-sm font-serif">
-                DN
-              </div>
-              <span className="text-white font-semibold text-lg">Deni Nuryadin</span>
+            <div className="mb-6 inline-block bg-white/95 p-3 rounded-2xl shadow-sm hover:scale-105 transition-transform duration-300">
+              <img src="/images/logo.png" alt="Deni Nuryadin Logo" className="h-10 sm:h-12 w-auto object-contain" />
             </div>
             <p className="text-sm leading-relaxed">
               Akademisi & Profesional Perbankan Syariah dengan pengalaman lebih dari 25 tahun di sektor keuangan syariah dan pendidikan tinggi.
