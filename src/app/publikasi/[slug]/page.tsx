@@ -5,6 +5,7 @@ import { getAllArticles, getArticleBySlug } from "@/lib/mdx";
 import ViewCounter from "@/components/ViewCounter";
 import PageTransition from "@/components/animations/PageTransition";
 import ScrollReveal from "@/components/animations/ScrollReveal";
+import ShareButtons from "@/components/ShareButtons";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -59,21 +60,24 @@ export default async function ArticlePage({ params }: Props) {
           {/* Article Header */}
           <ScrollReveal direction="up" delay={0.1}>
             <header className="mb-10">
-              {/* Tags */}
-              {article.tags.length > 0 && (
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {article.tags.map((tag: string) => (
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-6">
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2">
+                  {article.tags.length > 0 && article.tags.map((tag: string) => (
                     <span
                       key={tag}
-                      className="text-xs font-medium bg-gold/10 text-gold px-2.5 py-0.5 rounded-full"
+                      className="text-xs font-medium bg-gold/10 text-gold px-3 py-1 rounded-full shadow-sm shadow-gold/5"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
-              )}
 
-              <h1 className="text-3xl sm:text-4xl font-bold text-navy font-serif leading-tight mb-4">
+                {/* Share Buttons */}
+                <ShareButtons title={article.title} slug={slug} />
+              </div>
+
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-navy font-serif leading-tight mb-6">
                 {article.title}
               </h1>
 
