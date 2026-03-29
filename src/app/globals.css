@@ -117,9 +117,9 @@ html {
 .prose-custom h1 { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; color: var(--navy); }
 .prose-custom h2 { font-size: 1.5rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--slate-blue); }
 .prose-custom h3 { font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; color: var(--slate-blue-light); }
-.prose-custom p { line-height: 1.8; margin-bottom: 1rem; color: var(--gray-700); }
+.prose-custom p { line-height: 1.8; margin-bottom: 1rem; color: var(--gray-700); text-align: justify; }
 .prose-custom ul, .prose-custom ol { padding-left: 1.5rem; margin-bottom: 1rem; }
-.prose-custom li { line-height: 1.8; margin-bottom: 0.25rem; color: var(--gray-700); }
+.prose-custom li { line-height: 1.8; margin-bottom: 0.25rem; color: var(--gray-700); text-align: justify; }
 .prose-custom blockquote {
   border-left: 4px solid var(--gold);
   padding: 1rem 1.5rem;
