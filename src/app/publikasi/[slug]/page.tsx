@@ -64,12 +64,13 @@ export default async function ArticlePage({ params }: Props) {
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2">
                   {article.tags.length > 0 && article.tags.map((tag: string) => (
-                    <span
+                    <Link
                       key={tag}
-                      className="text-xs font-medium bg-gold/10 text-gold px-3 py-1 rounded-full shadow-sm shadow-gold/5"
+                      href={`/publikasi?tag=${encodeURIComponent(tag)}`}
+                      className="text-xs font-medium bg-gold/10 text-gold px-3 py-1 rounded-full shadow-sm shadow-gold/5 hover:bg-gold hover:text-navy transition-colors"
                     >
                       {tag}
-                    </span>
+                    </Link>
                   ))}
                 </div>
 

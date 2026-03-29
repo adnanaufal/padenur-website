@@ -41,6 +41,11 @@ export const metadata: Metadata = {
     locale: "id_ID",
     type: "website",
   },
+  icons: {
+    icon: "/icon.svg",
+    apple: "/icon.svg", 
+  },
+  metadataBase: new URL("https://padenur.com"),
 };
 
 export default function RootLayout({
