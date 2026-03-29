@@ -30,6 +30,7 @@ export default function PublikasiClient({ initialArticles }: { initialArticles: 
   );
   const [currentPage, setCurrentPage] = useState(Number(searchParams.get("page")) || 1);
   const [viewCounts, setViewCounts] = useState<Record<string, number>>({});
+  const [showAllTags, setShowAllTags] = useState(false);
 
   useEffect(() => {
     setSearchQuery(searchParams.get("q") || "");
@@ -158,13 +159,26 @@ export default function PublikasiClient({ initialArticles }: { initialArticles: 
           
           {allTags.length > 0 && (
             <div>
-              <p className="text-sm font-semibold text-navy mb-3 font-serif">Kategori & Topik Berita:</p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex items-center justify-between mb-3">
+                <p className="text-sm font-semibold text-navy font-serif">Kategori & Topik Berita:</p>
+                {allTags.length > 6 && (
+                  <button 
+                    onClick={() => setShowAllTags(!showAllTags)}
+                    className="text-xs font-bold text-gold hover:text-gold-light flex items-center gap-1 transition-colors bg-gold/5 px-3 py-1 rounded-full"
+                  >
+                    {showAllTags ? "Tutup" : "Lihat Semua"}
+                    <svg className={`w-3.5 h-3.5 transform transition-transform duration-300 ${showAllTags ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                )}
+              </div>
+              <div className={`flex flex-wrap gap-2 overflow-hidden transition-all duration-500 ease-in-out ${showAllTags ? "max-h-[500px]" : "max-h-[32px] sm:max-h-[36px]"}`}>
                 {allTags.map(tag => (
                   <button
                     key={tag}
                     onClick={(e) => handleTagClick(e, tag)}
-                    className={`text-xs font-medium px-3.5 py-1.5 rounded-full transition-all duration-300 ${
+                    className={`text-xs font-medium px-3.5 py-1.5 rounded-full transition-all duration-300 whitespace-nowrap ${
                       activeTag === tag 
                         ? "bg-gold text-navy shadow-md shadow-gold/20 scale-105" 
                         : "bg-navy/5 text-navy hover:bg-gold/10 hover:text-gold"
