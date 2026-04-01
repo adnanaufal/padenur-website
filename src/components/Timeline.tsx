@@ -23,7 +23,7 @@ const experiences = [
     role: "Komisaris Utama",
     company: "BPR Matahari",
     period: "2019 — 2025",
-    location: "Indonesia",
+    location: "Tangerang Selatan, Banten",
     responsibilities: [
       "Melakukan pengawasan dan memberikan nasihat kepada Direksi dalam menjalankan perusahaan."
     ],
