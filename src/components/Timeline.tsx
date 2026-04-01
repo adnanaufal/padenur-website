@@ -22,12 +22,12 @@ const experiences = [
   {
     role: "Komisaris Utama",
     company: "BPR Matahari",
-    period: "Aktif",
+    period: "2019 — 2025",
     location: "Indonesia",
     responsibilities: [
       "Melakukan pengawasan dan memberikan nasihat kepada Direksi dalam menjalankan perusahaan."
     ],
-    current: true,
+    current: false,
   },
   {
     role: "Lecturer",
